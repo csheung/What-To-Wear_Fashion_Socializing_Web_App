@@ -25,6 +25,18 @@ export default makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
   googleButton: {
-    marginBottom: theme.spacing(2),
+    backgroundColor: '#db4437', // Google red color
+    color: 'white',
+    marginTop: theme.spacing(0),
+    '&:hover': {
+      backgroundColor: '#db4437', // Slightly darker or different color on hover (optional)
+    },
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+  },
+  googleIcon: {
+    marginRight: theme.spacing(1),
   },
 }));

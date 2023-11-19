@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
-// import { GoogleLogin } from 'react-google-login';
-import { GoogleLogin, GoogleOAuthProvider, googleLogout } from '@react-oauth/google';
+import { GoogleLogin } from '@react-oauth/google';
+import { GoogleOAuthProvider, useGoogleLogin } from '@react-oauth/google';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -9,6 +9,7 @@ import Icon from './Icon';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Input from './Input.js';
 import { signin, signup } from '../../actions/auth';
+import decode from 'jwt-decode';
 
 import useStyles from './AuthStyles';
 
@@ -19,23 +20,31 @@ const Auth = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [isSignedUp, setIsSignedUp] = useState(false);
     const [formData, setFormData] = useState(initialState);
+    const [error, setError] = useState('');
     const dispatch = useDispatch();
     const history = useHistory();
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
+        let errorMessage;
         if (isSignedUp) {
-            dispatch(signup(formData, history))
+            errorMessage = await dispatch(signup(formData, history));
         } else {
-            dispatch(signin(formData, history))
+            errorMessage = await dispatch(signin(formData, history));
+        }
+    
+        if (errorMessage) {
+            setError(errorMessage); // Set the error message
+            setFormData(initialState); // Clear the form data
         }
     };
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value});
+        if (error) setError('');  // reset to empty if error
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const switchMode = () => {
@@ -43,15 +52,18 @@ const Auth = () => {
         setShowPassword(false);
     };
 
-    /* Google OAuth Use */
+    /* Google OAuth Use - On Success */
     const googleSuccess = async (credentialResponse) => {
-        const result = credentialResponse;
-        const token = result.credential;
-
+        const token = credentialResponse?.credential;
+    
+        if (!token) {
+            console.log('Google Sign In was unsuccessful. Try Again Later.');
+            return;
+        }
+    
         try {
-            console.log(credentialResponse);
-            dispatch({ type: 'AUTH', data: { result, token } })
-
+            const result = decode(token); // Decode the token to get user data
+            dispatch({ type: 'AUTH', data: { result, token } });
             history.push('/');
         } catch (error) {
             console.log(error);
@@ -59,6 +71,7 @@ const Auth = () => {
         }
     };
 
+    /* Google OAuth Use - On Failure */
     const googleFailure = (error) => {
         console.log(error);
         console.log("Google Sign In was unsuccessful. Try Again Later.");
@@ -70,7 +83,15 @@ const Auth = () => {
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
                 </Avatar>
-                <Typography variant="h5">{isSignedUp ? 'Sign Up' : 'Sign In'}</Typography>
+
+                <Typography variant="h5">
+                    {isSignedUp ? 'Sign Up' : 'Sign In'}
+                </Typography>
+
+                {error && (
+                    <Typography color="error">{error}</Typography>
+                )}
+
                 <form className={classes.form} onSubmit={handleSubmit}>
                     <Grid container spacing={2}>
                         { isSignedUp && (
@@ -89,9 +110,16 @@ const Auth = () => {
                     </Button>
 
                     <GoogleOAuthProvider clientId="591910231618-2071au6uof6f264j2rrqs76oq1r6q11c.apps.googleusercontent.com">
-                        {/* <Button className={classes.googleButton} color='primary' fullWidth onClick={() => useGoogleLogin} startIcon={<Icon />} variant="contained">
-                            Sign in with Google
-                        </Button> */}
+
+                        <Button 
+                            className={classes.googleButton} 
+                            color='primary' 
+                            onClick={() => useGoogleLogin} 
+                            startIcon={<Icon />} 
+                            variant="contained">
+                                Google Sign-in Below
+                        </Button>
+
                         <GoogleLogin
                             onSuccess={googleSuccess}
                             onError={() => {
@@ -100,20 +128,10 @@ const Auth = () => {
                             onFailure={googleFailure}
                             cookiePolicy="single_host_origin"
                         />
-
+                        
                         {/* Client ID: 591910231618-2071au6uof6f264j2rrqs76oq1r6q11c.apps.googleusercontent.com
                             Client Secret: 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 */}
-                        {/* <GoogleLogin
-                            render={(renderProps) => (
-                                <Button className={classes.googleButton} color='primary' fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon />} variant="contained">
-                                    Google Sign In
-                                </Button>
-                            )}
-                            onSuccess={googleSuccess}
-                            onFailure={googleFailure}
-                            cookiePolicy="single_host_origin"
-                            // useOneTap
-                        /> */}
+                            
                     </GoogleOAuthProvider>
 
                     <Grid container justifyContent='flex-end'>
@@ -129,4 +147,4 @@ const Auth = () => {
     )
 }
 
-export default Auth
+export default Auth;

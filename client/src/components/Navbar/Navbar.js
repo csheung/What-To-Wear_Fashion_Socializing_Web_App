@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { AppBar, Avatar, Typography, Toolbar, Button } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
@@ -13,19 +13,27 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const location = useLocation();
+    const token = user?.token;
 
-    const logout = () => {
+
+    const logout = useCallback(() => {
+        // Dispatch logout action
         dispatch({ type: 'LOGOUT' });
 
+        // Clear user data from localStorage or cookies
+        localStorage.removeItem('profile');
+
+        // Set user to null
+        setUser(null);
+
+        // Redirect to the posts page
         history.push('/posts');
 
-        setUser(null);
-    };
+    }, [dispatch, history]); // Dependencies for useCallback
 
     // console.log(user);
 
     useEffect(() => {
-        const token = user?.token;
 
         if (token) {
             const decodedToken = decode(token);
@@ -33,7 +41,7 @@ const Navbar = () => {
         }
 
         setUser(JSON.parse(localStorage.getItem('profile')));
-    }, [location])
+    }, [location, logout, token]);
 
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">

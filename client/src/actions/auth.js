@@ -10,6 +10,10 @@ export const signin = (formData, history) => async (dispatch) => {
         history.push('/');
     } catch (error) {
         console.log(error);
+
+        // Return error for the component to handle
+        return error.response.data.message;
+
     }
 };
 
@@ -22,5 +26,8 @@ export const signup = (formData, history) => async (dispatch) => {
         history.push('/');
     } catch (error) {
         console.log(error);
+        
+        // Return error for the component to handle
+        return error.response.data.message;
     }
 };
