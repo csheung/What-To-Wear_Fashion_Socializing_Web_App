@@ -4,6 +4,14 @@
 ![social_media_app_home](https://user-images.githubusercontent.com/99443055/232885539-77f6b3f0-7faa-4426-8877-6a41578a385a.jpeg)
 <br>
 
+## Responsive Web Design
+- Smaller browser window size: 
+<img width="893" alt="Screenshot 2023-11-19 at 5 09 17 AM" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/7e48279d-a0f3-4fb9-a0b7-f0c8edc5a989">
+
+- Phone screen size:
+<img width="216" alt="Screenshot 2023-11-19 at 5 12 47 AM" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/a37f42cf-59e0-41a3-9342-a33dd399a150">
+
+<br>
 
 ## Instructions
 ### Run the Program
@@ -59,6 +67,7 @@ npm start
 [nodemon] watching extensions: js,mjs,json
 [nodemon] starting `node index.js`
 Server running on port: 5000
+
 ```
 
 - Client side:
@@ -79,6 +88,8 @@ You can now view mern-stack-client in the browser.
 #### 5. View the Website Home Page
 - A new webpage like below should be opened with your default browser. 
 <!-- HOME image here -->
+<img width="1562" alt="social_media_app_home_no_sign_in" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/0b68540c-9368-4a7f-99f3-c5ab14b1caa9">
+
 - You can only view and search the posts now as you haven't signed in.
 - Click the post titles or type in some keywords to search for outfits you like! 
 
@@ -87,13 +98,20 @@ You can now view mern-stack-client in the browser.
 - Press the "SIGN IN" button at the top right corner inside the navigation bar.
 - A page with sign-in form should be shown to let you to login with your registered account or google account.
 <!-- Sign In image here -->
+<img width="1435" alt="Screenshot 2023-11-19 at 5 06 03 AM" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/014f4986-7079-469b-8063-21423ea71c11">
+
 
 - If you don't have a account with What-To-Wear, click the bottom line in the login form.
 - Then, a sign-up form should be shown. Type in necessary information to register.
 <!-- Sign Up image here -->
+<img width="1490" alt="sign-up-page" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/d546704f-2f2c-40e9-b409-7297a9b32fdd">
+
+- Error message appears to remind you the problems with your input.
+<img width="310" alt="sign-up-error" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/92e88025-d0e2-4d91-8338-1f287333366f">
 
 - After signing up, your account will be signed in automatically.
 <!-- Finish Sign Up image here -->
+<img width="1545" alt="sign-in-after-sign-up" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/7d5af5ae-f1fb-423b-a79b-96bf0c6bde52">
 
 - Click the "LOGOUT" button to sign out and get back to the starting home page.
 
@@ -103,13 +121,15 @@ You can now view mern-stack-client in the browser.
 ##### Read Posts
 - Click the title of the post to read its details in another focused page
 <!-- Read Posts image here -->
-
+<img width="1515" alt="read" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/c497a9be-7ff2-4a5e-82e1-165811167877">
+<br>
 
 ##### Create/Write Posts
 - Input the title, message, tags (split with comma ','), and upload file for a complete post.
 - Not required to have all inputs.
 <!-- Create Posts image here -->
-
+<img width="350" alt="create_write" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/4637ee02-ebcf-4ef1-9302-2ccc10b71b5f">
+<br>
 
 ##### Edit Posts
 - Click the top-right three dots on post grids you created to edit the post in the post form area.
@@ -122,12 +142,18 @@ You can now view mern-stack-client in the browser.
 ##### Delete Posts
 - Click the right-bottom trash-bin-like icon on post grids to delete the posts you created.
 <!-- Delete Posts image here -->
+<img width="255" alt="post_grid_edit_like_del" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/545a883e-0d94-4ee7-bda1-8b31bcfa15ca">
 
 ##### Search Posts
 - Enter content keywords or tags to search for posts.
 - Click the top-left "What-To-Wear" logo to go back to the home page after search.
 <!-- Search Posts image here -->
+<img width="1420" alt="search" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/71584f44-0a30-4a28-aafb-57a4ef0cee7c">
 
+##### Pagination
+- Click the pagination bar to go to the next page with other posts. Each page contains 8 posts at most.
+<!-- Pagination image here -->
+<img width="1420" alt="pagination" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/4c32702d-e58c-4787-80d3-303a60a5ab46">
 
 <br>
 
