@@ -20,28 +20,31 @@
 ### Architecture Diagram
 - Frontend (ReactJS) <-> Backend (NodeJS/Express) <-> Database (MongoDB)
 ![image](https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/0440785c-6a3a-44eb-b9ce-d422a54a6a22)
+<br>
 
 ### Component Diagram
 <img width="1090" alt="Screenshot 2023-11-22 at 1 12 50 PM" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/c977248a-6b7e-4e15-9f5a-372ca0201108">
 Vertical Presentation
-App
-|__ Navbar
-|__ Auth Form
-|__ Post List
-|   |__ Post
-|       |__ Like Button
-|       |__ Delete Button
-|       |__ Comment List
-|           |__ Comment
-|__ Search Form
-|__ Write Post Form
-|__ Pagination Bar
+App<br>
+|__ Navbar<br>
+|__ Auth Form<br>
+|__ Post List<br>
+|   |__ Post<br>
+|       |__ Like Button<br>
+|       |__ Delete Button<br>
+|       |__ Comment List<br>
+|           |__ Comment<br>
+|__ Search Form<br>
+|__ Write Post Form<br>
+|__ Pagination Bar<br>
+<br>
 
 ### Entity Relationship Diagram
 - A diagram showing the key data entities (User, Post) and relationships between them:
 <img width="750" alt="Screenshot 2023-11-22 at 1 47 03 PM" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/bed2efa6-0610-4780-8193-f40ec761c2d2">
 
-
+<br>
+<br>
 
 ## Instructions
 ### Run the Program
