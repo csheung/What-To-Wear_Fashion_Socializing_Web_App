@@ -1,4 +1,4 @@
-# What-To-Wear - Full Stack Web Application using MERN
+# What-To-Wear - Full Stack Web Application using MERN Stack
 
 ## Image Showcase
 ![social_media_app_home](https://user-images.githubusercontent.com/99443055/232885539-77f6b3f0-7faa-4426-8877-6a41578a385a.jpeg)
@@ -12,6 +12,12 @@
 <img width="216" alt="Screenshot 2023-11-19 at 5 12 47 AM" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/a37f42cf-59e0-41a3-9342-a33dd399a150">
 
 <br>
+
+## Explanatory Diagrams
+### Architecture Diagram
+- Frontend (ReactJS) <-> Backend (NodeJS/Express) <-> Database (MongoDB)
+![image](https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/0440785c-6a3a-44eb-b9ce-d422a54a6a22)
+
 
 ## Instructions
 ### Run the Program
