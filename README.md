@@ -1,8 +1,11 @@
 # What-To-Wear - Full Stack Web Application using MERN Stack
 
-## Image Showcase
+
+## Web App Home Page Preview
+- Home Page with multiple components such as the navigation bar, the post list, the search form, the write post form, the pagination bar, etc. 
 ![social_media_app_home](https://user-images.githubusercontent.com/99443055/232885539-77f6b3f0-7faa-4426-8877-6a41578a385a.jpeg)
 <br>
+
 
 ## Responsive Web Design
 - Smaller browser window size: 
@@ -17,6 +20,27 @@
 ### Architecture Diagram
 - Frontend (ReactJS) <-> Backend (NodeJS/Express) <-> Database (MongoDB)
 ![image](https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/0440785c-6a3a-44eb-b9ce-d422a54a6a22)
+
+### Component Diagram
+<img width="1090" alt="Screenshot 2023-11-22 at 1 12 50 PM" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/c977248a-6b7e-4e15-9f5a-372ca0201108">
+Vertical Presentation
+App
+|__ Navbar
+|__ Auth Form
+|__ Post List
+|   |__ Post
+|       |__ Like Button
+|       |__ Delete Button
+|       |__ Comment List
+|           |__ Comment
+|__ Search Form
+|__ Write Post Form
+|__ Pagination Bar
+
+### Entity Relationship Diagram
+- A diagram showing the key data entities (User, Post) and relationships between them:
+<img width="750" alt="Screenshot 2023-11-22 at 1 47 03 PM" src="https://github.com/csheung/What-To-Wear_Fashion_Socializing_Web_App/assets/99443055/bed2efa6-0610-4780-8193-f40ec761c2d2">
+
 
 
 ## Instructions
